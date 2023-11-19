@@ -9,6 +9,7 @@ import { ProductUpdateComponent } from './product/product-update/product-update.
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from './utils/search.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     ProductCreationComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    ProductUpdateComponent
+    ProductUpdateComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductListComponent {
 
+  searchText='';
   products!: Product[];
   constructor(
     private productService: ProductService,

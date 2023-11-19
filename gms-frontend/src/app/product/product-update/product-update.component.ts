@@ -38,4 +38,8 @@ export class ProductUpdateComponent implements OnInit{
     this.router.navigate(['/products']);
   }
 
+  backToList() {
+    this.router.navigate(['products']);
+  }
+
 }

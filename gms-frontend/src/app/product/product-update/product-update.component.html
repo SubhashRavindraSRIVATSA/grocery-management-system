@@ -14,7 +14,11 @@
                 [(ngModel)] = "product.productValue" name = "productValue">
         </div>
         
-        <button class = "btn btn-success" type ="submit">Submit</button>
+        
+        <div style="margin-top: 10px;">
+            <button class = "btn btn-success" type ="submit">Submit</button>
+            <button (click) = "backToList()" class = "btn btn-info" style="margin-left: 10px">Cancel</button>
+        </div>
     
     </form>
     </div> 
