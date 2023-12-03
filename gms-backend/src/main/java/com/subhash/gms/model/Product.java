@@ -1,20 +1,19 @@
 package com.subhash.gms.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.io.Serializable;
 import java.util.Date;
-
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +25,12 @@ public class Product {
     @Column(name = "product_value")
     private Double productValue;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "updated_at", nullable = false)
-    private Date updatedAt = new Date();
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @Column(name = "updated_at", nullable = false)
+//    private Date updatedAt = new Date();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(foreignKey=@ForeignKey(name="product_categorie_fk"))
+    @JsonIgnoreProperties(value = { "products", "category" }, allowSetters = true)
+    private Category category;
 }

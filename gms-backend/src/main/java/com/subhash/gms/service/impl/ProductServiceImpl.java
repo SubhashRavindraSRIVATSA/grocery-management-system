@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
         Product exProduct = productRepository.findById(id).get();
         exProduct.setProductName(product.getProductName());
         exProduct.setProductValue(product.getProductValue());
-        exProduct.setUpdatedAt(new Date());
+        //exProduct.setUpdatedAt(new Date());
         return  productRepository.save(exProduct);
     }
 
