@@ -25,9 +25,12 @@ public class Product implements Serializable {
     @Column(name = "product_value")
     private Double productValue;
 
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @Column(name = "updated_at", nullable = false)
-//    private Date updatedAt = new Date();
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated_at", nullable = false)
+    private Date updatedAt = new Date();
+
+    @Enumerated(EnumType.STRING)
+    private QuantityUnit quantityUnit;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(foreignKey=@ForeignKey(name="product_categorie_fk"))

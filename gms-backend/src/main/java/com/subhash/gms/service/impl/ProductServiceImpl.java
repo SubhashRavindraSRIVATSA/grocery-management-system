@@ -1,6 +1,7 @@
 package com.subhash.gms.service.impl;
 
 import com.subhash.gms.model.Product;
+import com.subhash.gms.model.QuantityUnit;
 import com.subhash.gms.repository.ProductRepository;
 import com.subhash.gms.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product updateProduct(long id, Product product) {
+        //Category category = new Category();
         Product exProduct = productRepository.findById(id).get();
         exProduct.setProductName(product.getProductName());
         exProduct.setProductValue(product.getProductValue());
-        //exProduct.setUpdatedAt(new Date());
+        //exProduct.setCategory(String.valueOf(category.getCategoryName()));
+        //exProduct.setCategory(this);
+        exProduct.setQuantityUnit(QuantityUnit.valueOf(String.valueOf(product.getQuantityUnit())));
+        exProduct.setUpdatedAt(new Date());
         return  productRepository.save(exProduct);
     }
 
@@ -44,3 +49,4 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 }
+
