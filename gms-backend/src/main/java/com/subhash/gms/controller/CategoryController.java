@@ -1,5 +1,6 @@
 package com.subhash.gms.controller;
 
+import com.subhash.gms.dto.ProductDto;
 import com.subhash.gms.model.Category;
 import com.subhash.gms.model.Product;
 import com.subhash.gms.service.CategoryService;
@@ -43,8 +44,13 @@ public class CategoryController {
         return new ResponseEntity<String>(HttpStatus.OK);
     }
 
-    @GetMapping("{categoryName}")
-    public List<Category> getAlLProductsByCategories() {
-        return categoryService.getAllCategories();
+    @GetMapping("/getAllCategoryNames")
+    public List<String> getAlLProductsByCategories() {
+        return categoryService.getAllCategoriesByName();
+    }
+
+    @GetMapping("/getProductByCategoryName/{categoryName}")
+    public List<ProductDto> getProductByCategoryName(@PathVariable("categoryName") String categoryName) {
+        return categoryService.getProductByCategoryName(categoryName);
     }
 }

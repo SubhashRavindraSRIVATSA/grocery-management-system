@@ -9,7 +9,6 @@ public enum QuantityUnit {
     UNIT("UNIT");
 
     private String description;
-
     QuantityUnit(String description) {
         this.description = description;
     }
