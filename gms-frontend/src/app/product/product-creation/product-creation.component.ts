@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
+import { QuantityUnitType } from 'src/app/model/quantity';
 import { ProductService } from 'src/app/service/product.service';
 
 @Component({
@@ -11,14 +12,16 @@ import { ProductService } from 'src/app/service/product.service';
 export class ProductCreationComponent implements OnInit{
 
   product:Product = new Product();
+  quantityUnitType = QuantityUnitType;
+
+  enumKeys=[];
 
   constructor(
     private productService: ProductService,
     private router: Router
   ) { }
   
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
   saveProduct(){
     this.productService.createProduct(this.product).subscribe( data =>{
@@ -34,6 +37,10 @@ export class ProductCreationComponent implements OnInit{
   
   onSubmit(){
     this.saveProduct();
+  }
+
+  getKeys(obj: any) {
+    return Object.keys(obj);
   }
 
 }

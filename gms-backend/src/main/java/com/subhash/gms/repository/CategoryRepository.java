@@ -14,5 +14,5 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     @Query(value = "select c.category_name from category c", nativeQuery = true)
     List<String> getAllCategoriesByName();
     @Query(nativeQuery = true)
-    List<ProductDto> getProductByCategoryName(String categoryName);
+    List<ProductDto> getProductByCategoryName(String category_name);
 }

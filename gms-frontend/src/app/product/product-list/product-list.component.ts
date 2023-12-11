@@ -40,4 +40,8 @@ export class ProductListComponent {
     })
   }
 
+  createProduct() {
+    this.router.navigate(['create-product']);
+  }
+
 }

@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './utils/search.pipe';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CategoryUpdateComponent } from './category/category-update/category-update.component';
+import { CategoryCreationComponent } from './category/category-creation/category-creation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { SearchPipe } from './utils/search.pipe';
     ProductListComponent,
     ProductDetailsComponent,
     ProductUpdateComponent,
-    SearchPipe
+    SearchPipe,
+    CategoryListComponent,
+    CategoryUpdateComponent,
+    CategoryCreationComponent
   ],
   imports: [
     BrowserModule,

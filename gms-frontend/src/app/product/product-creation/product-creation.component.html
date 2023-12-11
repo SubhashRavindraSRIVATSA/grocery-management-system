@@ -11,6 +11,15 @@
             <input type="text" class ="form-control" id = "productValue"
                 [(ngModel)] = "product.productValue" name = "productValue">
         </div>
-        <button class = "btn btn-success" type ="submit">Submit</button>  
+        <!-- <div class="form-group">
+            <label> Quantity</label>
+            <select>
+                <option [value]="enumKeys" *ngFor="let keys of getKeys(enumKeys)">{{ enumKeys[getKeys] }}</option>                   
+            </select>
+        </div> -->
+        <div style="padding-top: 10px;">
+            <button class = "btn btn-success" type ="submit">Submit</button>  
+            <button (click) = "goToProductList()" class = "btn btn-info" style="margin-left: 10px">Cancel</button> 
+        </div>
     </form>
 </div>

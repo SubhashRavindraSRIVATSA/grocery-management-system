@@ -22,7 +22,7 @@ export class ProductUpdateComponent implements OnInit{
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
-    this.productService.getProducteById(this.id).subscribe(data => {
+    this.productService.getProducteById({ id: this.id }).subscribe(data => {
       this.product = data;
     }, error => console.log(error));
   }
