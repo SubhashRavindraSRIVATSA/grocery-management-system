@@ -1,20 +1,8 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <ul class = "navbar-nav">
-        <li class = "nav-item">
-            <a routerLink="products" routerLinkActive="active" class="nav-link" >Products</a>
-        </li>
-        <li class = "nav-item">
-            <a routerLink="categories" routerLinkActive="active" class="nav-link">Categories</a>
-        </li>
-    </ul>
-  </nav>
-
-<h1 class="text-center"> Grocery Management System </h1>
+<h1 class="centered-text">Grocery Management System</h1>
+<mat-toolbar color="primary">
+  <button mat-button (click)="redirectToComponent('products')">Products</button>
+  <button mat-button (click)="redirectToComponent('categories')">Categories</button>
+</mat-toolbar>
 <div class = "container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
-<footer class = "footer">
-    <div class = "container">
-        <span>All Rights Reserved 2023 @ Subhash SRIVATSA</span>
-    </div>
-</footer>

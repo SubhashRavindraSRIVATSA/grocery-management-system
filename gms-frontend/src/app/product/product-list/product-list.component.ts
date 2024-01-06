@@ -1,47 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Product } from 'src/app/model/product';
-import { ProductService } from 'src/app/service/product.service';
+import { Component } from '@angular/core';
+
+export interface UserData {
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+}
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-
-  searchText='';
-  products!: Product[];
-  constructor(
-    private productService: ProductService,
-    private router: Router
-  ){}
-  ngOnInit(): void {
-    this.getProducts();
-  }
-  
-  private getProducts() {
-     this.productService.getProductsList().subscribe( data =>{
-      this.products = data;
-    })
-  }
-
-  productDetails(id: number){
-    this.router.navigate(['product-details', id]);
-  }
-
-  updateProduct(id: number){
-    this.router.navigate(['product-update', id]);
-  }
-
-  deleteProduct(id: number){
-    this.productService.deleteProduct(id).subscribe( data => {
-      console.log(data);
-      this.getProducts();
-    })
-  }
-
-  createProduct() {
-    this.router.navigate(['create-product']);
-  }
-
+  displayedColumns: string[] = ['id', 'name', 'email', 'phone'];
+  dataSource: UserData[] = [
+    { id: 1, name: 'John Doe', email: 'john@example.com', phone: '123-456-7890' },
+    { id: 2, name: 'Alice Smith', email: 'alice@example.com', phone: '987-654-3210' },
+    // Add more data as needed
+  ];
 }
