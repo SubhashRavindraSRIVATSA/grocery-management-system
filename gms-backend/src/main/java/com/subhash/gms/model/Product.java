@@ -32,8 +32,8 @@ public class Product implements Serializable {
     @Enumerated(EnumType.STRING)
     private QuantityUnit quantityUnit;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(foreignKey=@ForeignKey(name="product_categorie_fk"))
-    @JsonIgnoreProperties(value = { "products", "category" }, allowSetters = true)
-    private Category category;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(foreignKey=@ForeignKey(name="product_categorie_fk"))
+//    @JsonIgnoreProperties(value = { "products", "category" }, allowSetters = true)
+//    private Category category;
 }

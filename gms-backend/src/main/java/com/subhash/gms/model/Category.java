@@ -39,7 +39,7 @@ public class Category implements Serializable {
     @Column(name = "category_name")
     private String categoryName;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = {"category"}, allowSetters = true)
-    private Set<Product> products = new HashSet<>();
+//    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+//    @JsonIgnoreProperties(value = {"category"}, allowSetters = true)
+//    private Set<Product> products = new HashSet<>();
 }

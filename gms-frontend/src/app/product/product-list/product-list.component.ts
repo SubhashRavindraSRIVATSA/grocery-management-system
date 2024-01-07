@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../service/product.service';
+import { Router } from '@angular/router';
+import { Product } from '../../model/product';
+import { HttpErrorResponse } from '@angular/common/http';
 
 export interface UserData {
   id: number;
@@ -12,11 +16,31 @@ export interface UserData {
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent {
-  displayedColumns: string[] = ['id', 'name', 'email', 'phone'];
-  dataSource: UserData[] = [
-    { id: 1, name: 'John Doe', email: 'john@example.com', phone: '123-456-7890' },
-    { id: 2, name: 'Alice Smith', email: 'alice@example.com', phone: '987-654-3210' },
-    // Add more data as needed
-  ];
+export class ProductListComponent implements OnInit {
+
+  displayedColumns: string[] = ['id', 'productName', 'productValue', 'updatedAt','quantityUnit'];
+  dataSource: Product[] = [];
+
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ){}
+  
+  ngOnInit(): void {
+    this.getProductList();
+  }
+  
+  getProductList():void {
+    this.productService.getProductsList().subscribe(
+      {
+        next:(res:Product[]) =>{
+          this.dataSource = res;
+        },
+        error: (err:HttpErrorResponse) =>{
+          console.log(err);
+        }
+      }
+    );
+  }
+
 }

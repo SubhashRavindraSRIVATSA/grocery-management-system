@@ -9,14 +9,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import { CategoryListComponent } from './category/category-list/category-list.component';
 import { MatTableModule } from '@angular/material/table';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    CategoryListComponent
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +25,11 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatIconModule, 
     MatMenuModule,
-    MatTableModule 
+    MatTableModule,
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
