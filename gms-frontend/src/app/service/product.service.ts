@@ -14,7 +14,22 @@ export class ProductService {
     private httpClient: HttpClient
   ) { }
 
-  getProductsList(): Observable<Product[]> {
+  public saveProduct(product: Product): Observable<any>{
+    return this.httpClient.post(`${this.baseURL}`, product);
+  }
+
+  public getProductsList(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.baseURL}`);
+  }
+
+  public getProduct(id: number) {
+    return this.httpClient.get<Product>(`${this.baseURL}/${id}`);
+  }
+
+  public updateProduct(id: number, product: Product): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, product);
+  }
+  public deleteProduct(id: number) {
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 }

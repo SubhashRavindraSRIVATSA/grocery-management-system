@@ -1,0 +1,38 @@
+<div class="product-creation">
+    <h2 class="product-creation-title">Add / Modify Product</h2>
+    <form #productForm="ngForm" (ngSubmit)="saveProduct(productForm)">
+        <mat-card>
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>Product Name</mat-label>
+                <input matInput placeholder="productName" name="productName" [(ngModel)]="product.productName">
+            </mat-form-field>
+        </mat-card>
+        <mat-card>
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>Product Value</mat-label>
+                <input matInput placeholder="productValue" name="productValue" [(ngModel)]="product.productValue">
+            </mat-form-field>
+        </mat-card>
+        <mat-card>
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>Quantity Unit</mat-label>
+                <!-- <mat-select name="quantityUnit" [(ngModel)]="product.quantityUnit">
+                    @for (qu of quantityUnit; track qu) {
+                    <mat-option [value]="qu.value">{{qu.viewValue}}</mat-option>
+                    }
+                </mat-select> -->
+                <mat-select name="quantityUnit" [(ngModel)]="product.quantityUnit">
+                    <mat-option value="KG">KG</mat-option>
+                    <mat-option value="LITRES">LITRES</mat-option>
+                    <mat-option value="UNIT">UNIT</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <h3 style="margin-left: 85%;">Actions</h3>
+            <div class="action-buttons">
+                <button mat-flat-button color="primary" class="button">Submit</button>
+                <button mat-flat-button color="warn" class="button" style="margin-left: 5%;" routerLink="/products">Cancel</button>
+            </div>
+        </mat-card>
+    </form>
+</div>

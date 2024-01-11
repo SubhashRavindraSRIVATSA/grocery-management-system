@@ -1,6 +1,6 @@
-export class Product {
-    id!: number;
-    productName!: string;
-    productValue!: number;
-    updatedAt!: Date;
+export interface Product {
+    id: number;
+    productName: string;
+    productValue: number;
+    quantityUnit: string;
 }

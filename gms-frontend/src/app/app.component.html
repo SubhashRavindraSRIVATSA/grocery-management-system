@@ -1,9 +1,11 @@
-
 <mat-toolbar color="primary">
   <button mat-button (click)="redirectToComponent('products')">Products</button>
   <button mat-button (click)="redirectToComponent('categories')">Categories</button>
+  <h1 class="centered-text">Grocery Management System</h1>
 </mat-toolbar>
-<h1 class="centered-text">Grocery Management System</h1>
 <div class = "container">
   <router-outlet></router-outlet>
 </div>
+<mat-toolbar color="secondary" class="footer">
+  <h3 class="footer-text">Copyrights - Subhash Ravindra SRIVATSA</h3>
+</mat-toolbar>

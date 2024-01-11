@@ -4,13 +4,6 @@ import { Router } from '@angular/router';
 import { Product } from '../../model/product';
 import { HttpErrorResponse } from '@angular/common/http';
 
-export interface UserData {
-  id: number;
-  name: string;
-  email: string;
-  phone: string;
-}
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -18,29 +11,48 @@ export interface UserData {
 })
 export class ProductListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'productName', 'productValue', 'updatedAt','quantityUnit'];
+
+  displayedColumns: string[] = ['id', 'productName', 'productValue', 'updatedAt', 'quantityUnit', 'edit', 'delete'];
   dataSource: Product[] = [];
 
   constructor(
     private productService: ProductService,
     private router: Router
-  ){}
-  
+  ) { }
+
   ngOnInit(): void {
     this.getProductList();
   }
-  
-  getProductList():void {
+
+  getProductList(): void {
     this.productService.getProductsList().subscribe(
       {
-        next:(res:Product[]) =>{
+        next: (res: Product[]) => {
           this.dataSource = res;
         },
-        error: (err:HttpErrorResponse) =>{
+        error: (err: HttpErrorResponse) => {
           console.log(err);
         }
       }
     );
+  }
+
+  updateEmployee(id: number) :void{
+    this.router.navigate(['product-creation', {id:id}]);
+  }
+
+  deleteProduct(id: number): void {
+    this.productService.deleteProduct(id).subscribe(
+      {
+        next: (res) => {
+          console.log(res);
+          this.getProductList();
+        },
+        error: (err: HttpErrorResponse) => {
+          console.log(err);
+        }
+      }
+    )
   }
 
 }

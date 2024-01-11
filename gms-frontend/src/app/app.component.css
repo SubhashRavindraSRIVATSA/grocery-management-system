@@ -1,11 +1,21 @@
 .centered-text {
     flex: 1;
     text-align: center;
-    color: blue;
+    color: cornsilk;
   }
-  
   .example-spacer {
     flex: 1 1 auto;
+  }
+  .footer {
+    background-color: lightgrey;
+    height:6%;
+    width: 100%;
+    position: absolute;
+    bottom: 0; 
+  }
+  .footer-text {
+    flex: 1;
+    text-align: center;
   }
   
   

@@ -11,11 +11,21 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { provideHttpClient } from '@angular/common/http';
+import { FooterComponent } from './footer/footer.component';
+import { ProductCreationComponent } from './product/product-creation/product-creation.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    FooterComponent,
+    ProductCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +36,12 @@ import { provideHttpClient } from '@angular/common/http';
     MatIconModule, 
     MatMenuModule,
     MatTableModule,
+    MatDividerModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient()

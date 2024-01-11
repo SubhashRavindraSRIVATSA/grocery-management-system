@@ -29,8 +29,26 @@
       <td mat-cell *matCellDef="let element"> {{element.quantityUnit}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Edit</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="updateEmployee(element.id)">
+          <mat-icon>edit</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="deleteProduct(element.id)">
+          <mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
+</div>
+<div class="example-button-row">
+  <button mat-flat-button color="primary" routerLink="/product-creation">Add Product</button>
 </div>
