@@ -19,13 +19,17 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { CategoryListComponent } from './category/category-list/category-list.component';
+import { CategoryCreationComponent } from './category/category-creation/category-creation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     FooterComponent,
-    ProductCreationComponent
+    ProductCreationComponent,
+    CategoryListComponent,
+    CategoryCreationComponent
   ],
   imports: [
     BrowserModule,

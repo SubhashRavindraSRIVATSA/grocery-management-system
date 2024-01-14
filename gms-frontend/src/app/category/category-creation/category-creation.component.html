@@ -1,0 +1,17 @@
+<div class="category-creation">
+    <h2 class="category-creation-title">Add / Modify Category</h2>
+    <form #productForm="ngForm" (ngSubmit)="saveCategory(productForm)">
+        <mat-card>
+            <mat-form-field appearance="outline" class="form-fields">
+                <mat-label>Category Name</mat-label>
+                <input matInput placeholder="categoryName" name="categoryName">
+            </mat-form-field> 
+            <mat-divider></mat-divider>
+            <h3 style="margin-left: 85%;">Actions</h3>
+            <div class="action-buttons">
+                <button mat-flat-button color="primary" class="button">Submit</button>
+                <button mat-flat-button color="warn" class="button" style="margin-left: 5%;" routerLink="/categories">Cancel</button>
+            </div>
+        </mat-card> 
+    </form>
+</div>

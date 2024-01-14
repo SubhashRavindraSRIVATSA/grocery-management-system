@@ -10,8 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent implements OnInit {
-
-
+  
   displayedColumns: string[] = ['id', 'productName', 'productValue', 'updatedAt', 'quantityUnit', 'edit', 'delete'];
   dataSource: Product[] = [];
 

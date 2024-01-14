@@ -1,0 +1,39 @@
+<h2 class="table-title">Categories List</h2>
+<div class="table-lists">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="categoryName">
+            <th mat-header-cell *matHeaderCellDef> Category Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef>Edit</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="primary" (click)="updateCategory(element.id)">
+                <mat-icon>edit</mat-icon></button>
+            </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>Delete</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button color="warn" (click)="deleteCategory(element.id)">
+                <mat-icon>delete</mat-icon></button>
+            </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+</div>
+
+<div class="example-button-row">
+    <button mat-flat-button color="primary" routerLink="/category-creation">Add Category</button>
+</div>
