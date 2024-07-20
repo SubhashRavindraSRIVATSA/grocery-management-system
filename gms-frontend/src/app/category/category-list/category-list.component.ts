@@ -32,7 +32,7 @@ throw new Error('Method not implemented.');
   getCategoryList() {
     this.categoryService.getCategoriesList().subscribe(
       {
-        next: (res: Category[]) => {
+        next: (res: any[]) => {
           this.dataSource = res;
         },
         error: (err: HttpErrorResponse) => {
